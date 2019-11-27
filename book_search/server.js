@@ -12,8 +12,6 @@ const SavedBooks = require('./models/saved_books')
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
  app.use(express.static(path.join(__dirname,"build")));
-
-
 //  app.use('./static', express.static(path.join(__dirname, './client/build')));
 
 
