@@ -11,7 +11,7 @@ const SavedBooks = require('./models/saved_books')
 // Defining middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
- app.use(express.static(path.join(__dirname,"build")));
+ app.use(express.static(path.join(__dirname,"client")));
 //  app.use('./static', express.static(path.join(__dirname, './client/build')));
 
 
