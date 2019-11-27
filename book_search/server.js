@@ -11,7 +11,7 @@ const SavedBooks = require('./models/saved_books')
 // Defining middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
- app.use(express.static(path.join(__dirname,"client")));
+ app.use(express.static(path.join(__dirname,"client/build")));
 //  app.use('./static', express.static(path.join(__dirname, './client/build')));
 
 
@@ -27,7 +27,7 @@ db.on("error", function(err){
 
 // This route directs the user to the homepage.
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
     
 });
 
