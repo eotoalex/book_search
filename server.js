@@ -5,14 +5,14 @@ const path = require("path");
 // const axios = require("axios");
 // const cheerio = require("cheerio");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 const SavedBooks = require('./models/saved_books')
 
 // Defining middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
  app.use(express.static(path.join(__dirname,"client/build")));
-app.use('./static', express.static(path.join(__dirname, 'client/build')));
+
 
 // // This route directs the user to the homepage.
 // app.get("/", (req, res) => {
