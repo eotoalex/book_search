@@ -2,8 +2,7 @@ require('dotenv').config
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-// const axios = require("axios");
-// const cheerio = require("cheerio");
+const axios = require("axios");
 const app = express();
 const PORT = process.env.PORT || 5000;
 const SavedBooks = require('./models/saved_books')
@@ -11,7 +10,7 @@ const SavedBooks = require('./models/saved_books')
 // Defining middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
- app.use(express.static(path.join(__dirname,"client/build")));
+app.use(express.static(path.join(__dirname,"client/build")));
 
 
 // // This route directs the user to the homepage.
@@ -29,6 +28,11 @@ db.once("open", () => {console.log('Connected')});
 db.on("error", function(err){
     console.log(err);
 });
+
+// Test this axios request. Then push appropriate data to the database.
+// axios.get("", function(req, res){
+//     console.log(res);
+// })
 
 // This route posts the saved books to the database.
 app.post("/addbook", function(req, res) {
