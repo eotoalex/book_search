@@ -1,6 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import Books from "./components/Books";
 
 let styles = {
   backgroundColor:"purple",
@@ -24,6 +25,7 @@ class App extends React.Component{
         <input name="author" placeholder="Author" style={inputStyles}></input>
         </form>
       </div>
+      <Books/>
     </div>
 
 
