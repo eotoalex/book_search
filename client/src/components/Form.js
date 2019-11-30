@@ -28,9 +28,9 @@ class Form extends React.Component {
 
     handleFormSubmit = (e) => {
       e.preventDefault();
-      let query = this.state.book_search;
+      let query = this.state.book_search + this.state.author_search;
       API.getBooks(query)
-      .then(res => console.log(res.data.data))
+      .then(res => console.log(res.data.items))
       .catch(err => console.log(err))
     };
 
