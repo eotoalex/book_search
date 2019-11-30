@@ -2,7 +2,10 @@ import React from "react";
 import API from "../utils/API"
 
 let cardStyles = {
-    width:"18rem"
+    width:"90%",
+    margin:"auto",
+    display:"block"
+
 };
 
 class Books extends React.Component {
@@ -30,7 +33,7 @@ class Books extends React.Component {
             <div>
                 
                 <div className="card" style={cardStyles}>
-                    <img src="#" class="card-img-top" alt="Some book image."/>>
+                    <img src="#" className="card-img-top" alt="Some book image."/>>
                     <div className="card-body">
                     <p className="card-text">Books soon to render here.</p>
                     </div>

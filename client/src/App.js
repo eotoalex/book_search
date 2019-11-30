@@ -18,10 +18,10 @@ class App extends React.Component{
               <Form/>
             </div>
             {/* This is where the books will render from the books component */}
-            <Books/>
+            
       </div>
 
-
+      <Books/>
     </div>
   );
   }
