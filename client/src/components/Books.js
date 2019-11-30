@@ -24,7 +24,7 @@ class Books extends React.Component {
     render() {
         return (
             <div>
-                <div className="card" style="width: 18rem;">
+                <div className="card" style={width= 18 + "rem"}>
                     <img src="#" class="card-img-top" alt="Some book image."/>>
                     <div className="card-body">
                     <p className="card-text">Books soon to render here.</p>
