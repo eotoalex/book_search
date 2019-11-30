@@ -1,6 +1,10 @@
 import React from "react";
 import API from "../utils/API"
 
+let cardStyles = {
+    width:"18rem"
+};
+
 class Books extends React.Component {
 
     state = {
@@ -24,8 +28,8 @@ class Books extends React.Component {
     render() {
         return (
             <div>
-                {/* style={width= 18 + "rem"} */}
-                <div className="card">
+                
+                <div className="card" style={cardStyles}>
                     <img src="#" class="card-img-top" alt="Some book image."/>>
                     <div className="card-body">
                     <p className="card-text">Books soon to render here.</p>
