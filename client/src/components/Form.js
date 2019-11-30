@@ -1,4 +1,5 @@
 import React from 'react';
+import API from '../utils/API';
 
   let inputStyles = {
     margin:"10px"
@@ -25,25 +26,37 @@ class Form extends React.Component {
       });
     };
 
+    handleFormSubmit = (e) => {
+      e.preventDefault();
+      let query = this.state.book_search;
+      API.getBooks(query)
+      .then(res => console.log(res.data.data))
+      .catch(err => console.log(err))
+    };
+
     render(){
         return(
           <div>
               <form>
                   <input 
-                  name="book_search" 
-                  search = {this.state.book_search}
-                  placeholder="Book Title" 
-                  style={inputStyles} 
-                  onChange={this.handleChange} 
+                    name="book_search" 
+                    search = {this.state.book_search}
+                    placeholder="Book Title" 
+                    style={inputStyles} 
+                    onChange={this.handleChange} 
                   ></input> 
                 <br/>
                   <input 
-                  name="author_search" 
-                  search = {this.state.author_search}
-                  placeholder="Author" 
-                  style={inputStyles}
-                  onChange={this.handleChange}  
-                  ></input>
+                    name="author_search" 
+                    search = {this.state.author_search}
+                    placeholder="Author" 
+                    style={inputStyles}
+                    onChange={this.handleChange}  
+                  ></input> 
+                <br/>
+                  <button onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
+                    Submit
+                  </button>
               </form>
           </div>
             
