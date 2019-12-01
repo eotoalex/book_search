@@ -13,9 +13,10 @@ class Form extends React.Component {
   }
 
   // When this component mounts search google books api for books.
-  // componentDidMount(){
-  //   this.searchGoogleAPI(usrQuery);
-  // }
+  componentDidMount(){
+    let query = 
+    API.getBooks(query);
+  }
 
     // This targets the input event and the handleChange function is activated.
     handleChange = (e) => {
@@ -30,8 +31,9 @@ class Form extends React.Component {
       e.preventDefault();
       let query = this.state.book_search + this.state.author_search;
       API.getBooks(query)
-      .then(res => console.log(res.data.items))
+      .then(res => this.setState(res.data.items))
       .catch(err => console.log(err))
+      // console.log(this.state.results)
     };
 
     render(){

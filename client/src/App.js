@@ -8,6 +8,13 @@ import Form from "./components/Form"
       color:"darkgray",
     };
 
+    // React Router Dom needs to be used
+    // Express router is to be used as well.
+    // Use the structure of rendering given (title, authors, description, image, link)
+    // Link the books to the google books page.
+    // Saved books are rendered from the database
+    // Deletion is deleted from the database.
+
 class App extends React.Component{
   render() {
     return (
