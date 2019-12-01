@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
 import Books from "./components/Books";
-import Form from "./components/Form"
+import Form from "./components/Form";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import SavedBooks from './components/SavedBooks'
 
     let styles = {
       backgroundColor:"purple",
@@ -18,7 +20,11 @@ import Form from "./components/Form"
 class App extends React.Component{
   render() {
     return (
+
       <div className="App">
+        <Router>
+          <Route exact path="/savedbooks" component={SavedBooks}></Route>
+        </Router>
         <div className="jumbotron jumbotron-fluid" style={styles}>
             <div className="container">
               <h1 className="display-4">Google Book Search</h1>

@@ -5,6 +5,58 @@ import API from '../utils/API';
     margin:"10px"
   };
 
+  let cardStyles = {
+    width:"90%",
+    margin:"20px",
+    display:"block",
+    color:"black"
+  };
+  
+  let thumbNailSizing = {
+    height:"200px",
+    width:"300px"
+  };
+
+  let buttonStyle = {
+    float:"right"
+  };
+
+  let cardTextArea = {
+    backgroundColor:"gainsboro"
+  };
+
+  const handleClick = (e) => {
+    let click = e.target.value;
+    console.log("Click value ",click);
+  };
+const renderUserSearch = (res) => {
+  let data = res;
+    return data.map(function(book){
+      let title = book.volumeInfo.title;
+      let author = book.volumeInfo.authors;
+      let description = book.volumeInfo.description;
+      let image = book.volumeInfo.imageLinks.smallThumbnail;
+      let link = book.volumeInfo.previewLink;
+      // This renders the searched books into cards below the search jumbotron.
+      return(
+        <div>    
+          <div className="card" style={cardStyles}>
+            <button type="button" style={buttonStyle} onClick={handleClick} value={title}>Save Book</button>
+            <a href={link}>
+              <img src={image} className="card-img-top" alt="Some book image." style={thumbNailSizing}/>
+              <div className="card-body" style={cardTextArea}>
+                <p className="card-text">{title}</p>
+                <p className="card-text">{author}</p>
+                <p className="card-text">{description}</p>
+              </div>
+              </a>
+          </div>
+        </div>
+      
+      );
+    });
+  };
+
 class Form extends React.Component {
   state = {
     book_search:"",
@@ -12,10 +64,12 @@ class Form extends React.Component {
     results:[],
   }
 
-  // When this component mounts search google books api for books.
-  componentDidMount(){
-    let query = 
-    API.getBooks(query);
+  searchGoogleBooks = (query) => {
+   // This calls this invokes the api method.
+   API.getBooks(query)
+   .then(res => this.setState({results:res.data.items}, function (){
+   }))
+   .catch(err => console.log(err))
   }
 
     // This targets the input event and the handleChange function is activated.
@@ -23,17 +77,24 @@ class Form extends React.Component {
       let name = e.target.name;
       let value = e.target.value;
       this.setState ({
-        [name]:value,
+        [name]:value
       });
     };
 
     handleFormSubmit = (e) => {
-      e.preventDefault();
-      let query = this.state.book_search + this.state.author_search;
-      API.getBooks(query)
-      .then(res => this.setState(res.data.items))
-      .catch(err => console.log(err))
-      // console.log(this.state.results)
+    e.preventDefault();
+    var query;
+    var book = this.state.book_search;
+    var author = this.state.author_search;
+      // User form validation.
+      if(book && author){
+      query = book +" "+ author;
+      } else if (!book){
+        query = author;
+      } else if(!author){
+        query = book;
+      }
+     this.searchGoogleBooks(query);
     };
 
     render(){
@@ -60,6 +121,7 @@ class Form extends React.Component {
                     Submit
                   </button>
               </form>
+              {renderUserSearch(this.state.results)}
           </div>
             
         );

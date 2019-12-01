@@ -1,13 +1,6 @@
 import React from "react";
 import API from "../utils/API"
 
-let cardStyles = {
-    width:"90%",
-    margin:"auto",
-    display:"block"
-
-};
-
 class Books extends React.Component {
 
     state = {
@@ -19,7 +12,7 @@ class Books extends React.Component {
     // Then we put what it pulls in the db
     // Then we render from the db
     componentDidMount() {
-        this.loadBooks();
+        this.loadBooks("love");
     }
 
     loadBooks = () => {
@@ -32,12 +25,12 @@ class Books extends React.Component {
         return (
             <div>
                 
-                <div className="card" style={cardStyles}>
+                {/* <div className="card" style={cardStyles}>
                     <img src="#" className="card-img-top" alt="Some book image."/>>
                     <div className="card-body">
                     <p className="card-text">Books soon to render here.</p>
                     </div>
-                </div>
+                </div> */}
             </div>
         );
     };
