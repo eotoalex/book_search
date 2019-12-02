@@ -50,7 +50,6 @@ app.post("/api/books", function(req, res) {
     savedBook.save(function(err, book){
         if (err){console.log(err)}
         console.log(book.name + "saved to the database")
-        // res.json(db.find({}))
         SavedBooks.find({}, function(err,data){
             if(err){console.log(err)}
             res.json(data)
