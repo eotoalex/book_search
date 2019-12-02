@@ -8,7 +8,7 @@ export default {
         return axios.get(url + query + apiKey);
     },
     saveBook: function(){
-        return axios.post("http://localhost:5000/api/books",{});
+        return axios.post("http://localhost:5000/http://localhost:5000/api/books",{});
     },
     getSavedBooks: function(){
         return axios.get("http://localhost:5000/api/books");
