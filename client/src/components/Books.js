@@ -25,12 +25,7 @@ class Books extends React.Component {
         return (
             <div>
                 
-                {/* <div className="card" style={cardStyles}>
-                    <img src="#" className="card-img-top" alt="Some book image."/>>
-                    <div className="card-body">
-                    <p className="card-text">Books soon to render here.</p>
-                    </div>
-                </div> */}
+               
             </div>
         );
     };

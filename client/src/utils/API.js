@@ -7,8 +7,14 @@ export default {
     getBooks:function(query){
         return axios.get(url + query + apiKey);
     },
+    saveBook: function(){
+        return axios.post("http://localhost:5000/api/books",{});
+    },
     getSavedBooks: function(){
-        return axios.get("http://localhost:5000/savedbooks")
+        return axios.get("http://localhost:5000/api/books");
+    },
+    getBookById: function(id){
+        return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + id + apiKey );
     }
 };
 

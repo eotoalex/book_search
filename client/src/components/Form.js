@@ -25,9 +25,37 @@ import API from '../utils/API';
     backgroundColor:"gainsboro"
   };
 
+    // Push saved data into database.
+    let savedBooks = (book) => {
+      let title = book.data.items[0].volumeInfo.title;
+      let author = book.data.items[0].volumeInfo.authors;
+      let description = book.data.items[0].volumeInfo.description;
+      let image = book.data.items[0].volumeInfo.imageLinks.smallThumbnail;
+      let link = book.data.items[0].volumeInfo.previewLink;
+      let bookId = book.data.items[0].id
+      // console.log(title,author,description,image,link,bookId)
+      API.saveBook("",{
+        name:title,
+        author:author,
+        description:description,
+        image:image,
+        link:link,
+        bookId:bookId
+      })
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+
+    };
+
   const handleClick = (e) => {
     let click = e.target.value;
-    console.log("Click value ",click);
+    API.getBookById(click)
+    .then((res) => {
+      savedBooks(res)
+    })
+    .catch(err => console.log(err))
+    
+    // console.log("ID == > ",click);
   };
 const renderUserSearch = (res) => {
   let data = res;
@@ -37,11 +65,12 @@ const renderUserSearch = (res) => {
       let description = book.volumeInfo.description;
       let image = book.volumeInfo.imageLinks.smallThumbnail;
       let link = book.volumeInfo.previewLink;
+      let bookId = book.id
       // This renders the searched books into cards below the search jumbotron.
       return(
         <div>    
           <div className="card" style={cardStyles}>
-            <button type="button" style={buttonStyle} onClick={handleClick} value={title}>Save Book</button>
+            <button type="button" style={buttonStyle} onClick={handleClick} value={bookId} >Save Book</button>
             <a href={link}>
               <img src={image} className="card-img-top" alt="Some book image." style={thumbNailSizing}/>
               <div className="card-body" style={cardTextArea}>

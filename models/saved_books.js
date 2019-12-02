@@ -8,7 +8,8 @@ let SavedBooksSchema = new Schema({
     author: String,
     description:String,
     image:String,
-    link:String
+    link:String,
+    bookId:String
 });
 
 let SavedBooks = mongoose.model("SavedBooks", SavedBooksSchema);

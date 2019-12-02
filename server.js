@@ -30,7 +30,7 @@ db.on("error", function(err){
 });
 
 // This shows the books that are saved to the database.
-app.get("/savedbooks", function(req, res){
+app.get("/api/books", function(req, res){
     SavedBooks.find({}, function(err, data){
         if(err) {console.log(err)}
         res.json(data);
@@ -38,7 +38,7 @@ app.get("/savedbooks", function(req, res){
 })
 
 // This route posts the saved books to the database.
-app.post("/addbook", function(req, res) {
+app.post("/api/books", function(req, res) {
     // res.send("this route is hitting")
     const savedBook = new SavedBooks({
         _id: new mongoose.Types.ObjectId(),
@@ -60,7 +60,7 @@ app.post("/addbook", function(req, res) {
 });
 
 // This deletes the designated book from the savedbooks collection.
-app.delete("/delete/:id", (req, res) => {
+app.delete("/api/books/:id", (req, res) => {
     let id = req.params.id;
     SavedBooks.findOneAndRemove({_id:id}, function(err){
         if (err){
