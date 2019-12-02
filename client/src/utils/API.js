@@ -7,11 +7,18 @@ export default {
     getBooks:function(query){
         return axios.get(url + query + apiKey);
     },
-    saveBook: function(){
-        return axios.post("http://localhost:5000/http://localhost:3000/api/books",{});
+    saveBook: function(title,author,description,image,link,bookId){
+        return axios.post("/api/books",{
+            name:title,
+            author:author,
+            description:description,
+            image:image,
+            link:link,
+            bookId:bookId
+        });
     },
     getSavedBooks: function(){
-        return axios.get("http://localhost:5000/api/books");
+        return axios.get("/api/books");
     },
     getBookById: function(id){
         return axios.get(url + id + apiKey );
