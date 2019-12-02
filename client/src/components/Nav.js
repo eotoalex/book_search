@@ -11,12 +11,12 @@ class Nav extends React.Component{
                 <nav>
                 <Router>
                     <ul>
-                    <li><Link to={"/"}>Home</Link></li>
+                    {/* <li><Link to={"/"}>Home</Link></li> */}
                     <li><Link to={"/saved_books"}>My Saved Books</Link></li>
 
                     </ul>
-                    <Route exact path="/" component={Form}></Route>
-                    <Route exact path="/savedbooks" component={SavedBooks}></Route>
+                    {/* <Route exact path="/" component={Form}></Route> */}
+                    <Route exact path="/saved_books" component={SavedBooks}></Route>
                 </Router>
                 </nav>
             </div>
