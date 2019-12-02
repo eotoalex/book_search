@@ -11,7 +11,7 @@ export default {
         return axios.post("https://blooming-hollows-91552.herokuapp.com/api/books",{});
     },
     getSavedBooks: function(){
-        return axios.get("http://localhost:5000/api/books");
+        return axios.get("https://blooming-hollows-91552.herokuapp.com/api/books");
     },
     getBookById: function(id){
         return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + id + apiKey );
