@@ -22,7 +22,11 @@ import API from '../utils/API';
   };
 
     
-    
+  const handleClick = (e) => {
+    let click = e.target.value;
+    API.deleteSavedBook(click);
+    window.location.reload();
+  }
 
 class SavedBooks extends React.Component{
     state = {
@@ -40,11 +44,7 @@ class SavedBooks extends React.Component{
       .catch(err => console.log(err))
     }
 
-    handleClick = (e) => {
-      let click = e.target.value;
-      API.deleteSavedBook(click);
-      console.log(click)
-    }
+    
 
     renderSavedBooks = (dbData) => {
       console.log(dbData)
@@ -52,14 +52,16 @@ class SavedBooks extends React.Component{
     return savedBooks.map(function(book){
         const { title, author, description, image, link, bookId } = book
 
-        console.log(title,author,description,image, link, bookId)
+         console.log(book._id)
 
+        
+      
         return(
+          
             <div>    
               <div className="card" style={cardStyles}>
-                {/* <button type="button" style={buttonStyle} onClick={this.handleClick} value={bookId} >Delete</button> */}
+                <button type="button" style={buttonStyle} onClick={handleClick} value={book._id} >Delete</button>
                 <a href={link}><button type="button" style={buttonStyle} value="view">View</button></a>
-                
                   <img src={image} className="card-img-top" alt="Some book." style={thumbNailSizing}/>
                   <div className="card-body" style={cardTextArea}>
                     <p className="card-text">{title}</p>

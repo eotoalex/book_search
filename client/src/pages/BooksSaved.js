@@ -1,7 +1,5 @@
 import React from 'react';
-import SavedBooks from "../components/SavedBooks"
-
-
+import SavedBooks from "../components/SavedBooks";
 
 let styles = {
   backgroundColor:"purple",
@@ -10,6 +8,12 @@ let styles = {
 };
 
 class BooksSaved extends React.Component{
+
+  // handleClick = (e) => {
+  //   let click = e.target.value;
+  //   API.deleteSavedBook(click);
+  //   console.log(click)
+  // }
   render() {
     return (
       

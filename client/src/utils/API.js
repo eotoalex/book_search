@@ -23,8 +23,8 @@ export default {
     getBookById: function(id){
         return axios.get(url + id + apiKey );
     },
-    // deleteSavedBook: function (id){
-    //     return axios.delete("/api/books/" + id)
-    // }
+    deleteSavedBook: function (id){
+        return axios.delete("/api/books/" + id)
+    }
 };
 
