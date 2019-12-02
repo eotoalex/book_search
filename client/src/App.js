@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
- import Nav from "./components/Nav";
-import JumboTron from "./components/JumboTron";
+import Home from "./pages/Home";
+import BooksSaved from "./pages/BooksSaved"
+import {BrowserRouter as Router, Route,Link} from 'react-router-dom';
 
    
 
@@ -9,10 +10,14 @@ class App extends React.Component{
   render() {
     return (
       
-      <div className="App">
-        <Nav/>
-        <JumboTron/>
-      </div>
+      <Router>
+        <ul>
+          <li><Link to={"/"}>Home</Link></li>
+          <li><Link to={"/saved_books"}>My Saved Books</Link></li>
+        </ul>
+        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/saved_books" component={BooksSaved}></Route>
+    </Router>
   );
   }
 }
