@@ -21,7 +21,6 @@ import API from '../utils/API';
     backgroundColor:"gainsboro"
   };
 
-    
   const handleClick = (e) => {
     let click = e.target.value;
     API.deleteSavedBook(click);
@@ -44,13 +43,11 @@ class SavedBooks extends React.Component{
       .catch(err => console.log(err))
     }
 
-    
-
     renderSavedBooks = (dbData) => {
       console.log(dbData)
     let savedBooks = dbData;
     return savedBooks.map(function(book){
-        const { title, author, description, image, link, bookId } = book
+        const { title, author, description, image, link } = book
 
          console.log(book._id)
 
