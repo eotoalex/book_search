@@ -14,7 +14,7 @@ export default {
         return axios.get("http://localhost:5000/api/books");
     },
     getBookById: function(id){
-        return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + id + apiKey );
+        return axios.get(url + id + apiKey );
     }
 };
 
