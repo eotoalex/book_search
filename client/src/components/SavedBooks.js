@@ -24,7 +24,7 @@ import API from '../utils/API';
   const handleClick = (e) => {
     let click = e.target.value;
     API.deleteSavedBook(click);
-    window.location.reload();
+    // window.location.reload();
   }
 
 class SavedBooks extends React.Component{
