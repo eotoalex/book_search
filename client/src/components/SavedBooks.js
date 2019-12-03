@@ -23,10 +23,12 @@ import API from '../utils/API';
 
   const handleClick = (e) => {
     let click = e.target.value;
-    API.deleteSavedBook(click);
+    API.deleteSavedBook(click)
+    .then((res) => {console.log(res)})
+    .catch((err) => {console.log(err)})
     // window.location.reload();
     // This should rerender the page.
-     SavedBooks.loadSavedBooks();
+    //  SavedBooks.loadSavedBooks();
   }
 
 class SavedBooks extends React.Component{
