@@ -21,15 +21,15 @@ import API from '../utils/API';
     backgroundColor:"gainsboro"
   };
 
-  const handleClick = (e) => {
-    let click = e.target.value;
-    API.deleteSavedBook(click)
-    .then((res) => {console.log(res)})
-    .catch((err) => {console.log(err)})
-    // window.location.reload();
-    // This should rerender the page.
-    //  SavedBooks.loadSavedBooks();
-  }
+  // const handleClick = (e) => {
+  //   let click = e.target.value;
+  //   API.deleteSavedBook(click)
+  //   .then((res) => {console.log(res)})
+  //   .catch((err) => {console.log(err)})
+  //   // window.location.reload();
+  //   // This should rerender the page.
+  //   //  SavedBooks.loadSavedBooks();
+  // }
 
 class SavedBooks extends React.Component{
     state = {
@@ -45,6 +45,16 @@ class SavedBooks extends React.Component{
         savedBooks:res.data
       }))
       .catch(err => console.log(err))
+    }
+
+     handleClick = (e) => {
+      let click = e.target.value;
+      API.deleteSavedBook(click)
+      .then((res) => {console.log(res)})
+      .catch((err) => {console.log(err)})
+      // window.location.reload();
+      // This should rerender the page.
+      //  SavedBooks.loadSavedBooks();
     }
 
     renderSavedBooks = (dbData) => {
