@@ -26,7 +26,7 @@ import API from '../utils/API';
     API.deleteSavedBook(click);
     // window.location.reload();
     // This should rerender the page.
-     this.loadSavedBooks();
+     SavedBooks.loadSavedBooks();
   }
 
 class SavedBooks extends React.Component{
@@ -50,11 +50,6 @@ class SavedBooks extends React.Component{
     let savedBooks = dbData;
     return savedBooks.map(function(book){
         const { title, author, description, image, link } = book
-
-         console.log(book._id)
-
-        
-      
         return(
           
             <div>    
