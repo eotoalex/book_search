@@ -63,14 +63,13 @@ import API from '../utils/API';
           <div>    
             <div className="card" style={cardStyles}>
               <button type="button" style={buttonStyle} onClick={handleClick} value={bookId} >Save Book</button>
-              <a href={link}>
+              <a href={link}><button type="button" style={buttonStyle} value="view">View</button></a>
                 <img src={image} className="card-img-top" alt="Some book image." style={thumbNailSizing}/>
                 <div className="card-body" style={cardTextArea}>
                   <p className="card-text">{title}</p>
                   <p className="card-text">{author}</p>
                   <p className="card-text">{description}</p>
                 </div>
-                </a>
             </div>
           </div>
         
