@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname,"client/build")));
 // });
 
 // Set up mongoose locally and for mLab.
-const MONGODB_URL = "mongodb://localhost/googlebooks" || process.env.MONGODB_URI;
+const MONGODB_URL = process.env.MONGODB_URI || "mongodb://localhost/googlebooks" ;
 mongoose.connect(MONGODB_URL, { useNewUrlParser: true });
 
 var db = mongoose.connection;
