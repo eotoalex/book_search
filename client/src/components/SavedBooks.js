@@ -26,7 +26,7 @@ import API from '../utils/API';
     API.deleteSavedBook(click);
     // window.location.reload();
     // This should rerender the page.
-    // this.loadSavedBooks();
+     this.loadSavedBooks();
   }
 
 class SavedBooks extends React.Component{
